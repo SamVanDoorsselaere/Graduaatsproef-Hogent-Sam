@@ -1,0 +1,38 @@
+\documentclass{hogent-article}
+
+% Invoegen bibliografiebestand
+\addbibresource{voorstel.bib}
+
+% Informatie over de opleiding, het vak en soort opdracht
+\studyprogramme{Graduaat in het Programmeren}
+\course{Graduaatsproef}
+\assignmenttype{Onderzoeksvoorstel}
+
+\academicyear{2025-2026}
+
+\title{React Native mobiele app voor Energytix}
+
+\author{Sam Van Doorsselaere}
+\email{sam.vandoorsselaere@student.hogent.be}
+
+
+\supervisor[Co-promotor]{K. De Ridder (IRC Engineering, \href{mailto:kdr@irc.be}{kdr@irc.be})}
+
+\specialisation{Mobile \& Enterprise development}
+\keywords{React Native, Expo, Energytix, Real-time Data, API-integratie}
+
+\begin{document}
+
+\begin{abstract}
+Dit onderzoeksproject focust op de ontwikkeling van een mobiele applicatie voor Energytix, ter vervanging of aanvulling van de huidige webgebaseerde klok-pagina. Door gebruik te maken van React Native en Expo wordt de bestaande functionaliteit omgezet naar een native mobiele ervaring. Het doel is om gebruikers directe toegang te bieden tot real-time energieprijzen en verbruiksdata via een interface die geoptimaliseerd is voor mobiel gebruik. Het resultaat is een werkend prototype dat communiceert met de Energytix API via Axios, wat de toegankelijkheid en de algemene gebruikerservaring voor de eindgebruiker aanzienlijk verbetert.
+\end{abstract}
+
+\tableofcontents
+
+% De hoofdtekst van het voorstel zit in een apart bestand, zodat het makkelijk
+% kan opgenomen worden in de bijlagen van de graduaatsproef zelf.
+\input{voorstel-inhoud}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
