@@ -1,8 +1,12 @@
 %===============================================================================
 % LaTeX verslag voor de graduaatsproef - Sam Van Doorsselaere
 %===============================================================================
+\makeatletter
+\@namedef{ver@firamath.sty}{2020/10/10}
+\@namedef{ver@sfmath.sty}{2008/06/23}
+\makeatother
 
-\documentclass[dutch,dit,thesis,oneside]{hogentreport}
+\documentclass[dutch,dit,thesis,oneside,nativefonts,openany]{hogentreport}
 
 \usepackage[chapter,outputdir=../output]{minted}
 \usepackage{graphicx}
@@ -27,7 +31,6 @@
 \academicyear{2025-2026}
 
 \addbibresource{gradproef.bib} % Je nieuwe bib bestand
-\addbibresource{voorstel.bib}  % Je bib bestand van je voorstel
 
 \begin{document}
 
@@ -58,7 +61,7 @@
     \vspace{2cm}
     
     % Zorg dat je een logo van Energytix in een map 'img' zet
-    \includegraphics[width=9cm]{img/energytix_logo.png} 
+    % \includegraphics[width=9cm]{img/energytix_logo.png} 
     
     \vfill 
     
@@ -66,7 +69,7 @@
     
     \vspace{0.5cm}
     
-    Promotor: [Naam van je HOGENT promotor] \\
+    Promotor: [Isabelle Demeulenaere] \\
     Co-promotor: K. De Ridder (IRC Engineering)
     
     \vspace{1cm}
@@ -85,7 +88,6 @@
 \input{voorwoord}
 
 \tableofcontents
-\listoffigures % Optioneel
 
 \mainmatter
 

@@ -49,15 +49,9 @@ Tijdens de implementatie bleek de compatibiliteit tussen iOS en Android een stru
 
 \subsection{Datum-picker Problematiek}
 Terwijl de standaard Android-kalender direct bruikbaar was, gaf de iOS-variant een afwijkende weergave die de styling van de app verstoorde. Dit is opgelost door gebruik te maken van conditionele rendering:
-\begin{minted}{javascript}
-{Platform.OS === 'ios' ? (
-  /* Specifieke iOS implementatie */
-  <IOSDatePicker />
-) : (
-  /* Standaard Android implementatie */
-  <AndroidDatePicker />
-)}
-\end{minted}
+\begin{verbatim}
+    {Platform.OS === 'ios' ? ( <IOSDatePicker /> ) : ( <AndroidDatePicker /> )}
+    \end{verbatim}
 Hierdoor wordt op elk besturingssysteem de meest gebruiksvriendelijke component getoond zonder in te boeten op de huisstijl van Energytix.
 
 \section{Styling en Customization}
