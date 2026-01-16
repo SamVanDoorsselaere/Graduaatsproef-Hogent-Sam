@@ -1,48 +1,14 @@
-%%=============================================================================
-%% Samenvatting
-%%=============================================================================
+\chapter{Samenvatting}
+\label{ch:samenvatting}
 
-% TODO: De "abstract" of samenvatting is een kernachtige (~ 1 blz. voor een
-% thesis) synthese van het document.
-%
-% Een goede abstract biedt een kernachtig antwoord op volgende vragen:
-%
-% 1. Waarover gaat de graduaatsproef?
-% 2. Waarom heb je er over geschreven?
-% 3. Hoe heb je het onderzoek uitgevoerd?
-% 4. Wat waren de resultaten? Wat blijkt uit je onderzoek?
-% 5. Wat betekenen je resultaten? Wat is de relevantie voor het werkveld?
-%
-% Daarom bestaat een abstract uit volgende componenten:
-%
-% - inleiding + kaderen thema
-% - probleemstelling
-% - (centrale) onderzoeksvraag
-% - onderzoeksdoelstelling
-% - methodologie
-% - resultaten (beperk tot de belangrijkste, relevant voor de onderzoeksvraag)
-% - conclusies, aanbevelingen, beperkingen
-%
-% LET OP! Een samenvatting is GEEN voorwoord!
+Deze graduaatsproef beschrijft de ontwikkeling van een mobiele applicatie voor Energytix, met als doel de toegankelijkheid van real-time energieprijzen te vergroten. De huidige oplossing, een webgebaseerde "klok-pagina", bood niet de gewenste snelheid en gebruikerservaring die mobiele gebruikers vandaag de dag verwachten.
 
-%%---------- Nederlandse samenvatting -----------------------------------------
-%
-% TODO: Als je je graduaatsproef in het Engels schrijft, moet je eerst een
-% Nederlandse samenvatting invoegen. Haal daarvoor onderstaande code uit
-% commentaar.
-% Wie zijn/haar graduaatsproef in het Nederlands schrijft, kan dit negeren, de inhoud
-% wordt niet in het document ingevoegd.
+Het doel van dit project was het realiseren van een functioneel prototype in React Native dat de complexe prijsinformatie van Energytix vertaalt naar een intuïtieve visuele interface. Centraal hierin staat de "klok-weergave", die de actuele uurprijs per megawattuur toont, aangevuld met een "morgen-cirkel" die vanaf 14:00 uur de prijsvoorspellingen voor de volgende dag visualiseert. Hierbij is een dynamisch kleurenschema geïmplementeerd (groen voor goedkoop, rood voor duur) om de gebruiker direct handelingsperspectief te bieden.
 
-\IfLanguageName{english}{%
-\selectlanguage{dutch}
-\chapter*{Samenvatting}
-\lipsum[1-4]
-\selectlanguage{english}
-}{}
+Voor de realisatie is gebruikgemaakt van een moderne technologie-stack bestaande uit \textbf{React Native} en \textbf{Expo Go}. De communicatie met de Energytix API en de \textbf{PostgreSQL}-database verloopt via een \textbf{Node.js}-tussenlaag (`server.js`), waarbij \textbf{Axios} wordt ingezet voor de data-afhandeling. 
 
-%%---------- Samenvatting -----------------------------------------------------
-% De samenvatting in de hoofdtaal van het document
+De grootste uitdagingen tijdens het traject lagen in het waarborgen van cross-platform compatibiliteit tussen iOS en Android, met name voor specifieke UI-elementen zoals de kalenderinterface. De opgeleverde applicatie biedt een solide basis voor de verdere digitalisering van het Energytix-platform en verbetert de gebruikservaring voor eindgebruikers aanzienlijk door cruciale data letterlijk binnen handbereik te brengen.
 
-\chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
-
-\lipsum[1-4]
+\vspace{1.5cm}
+\noindent \textbf{Link naar GitHub repository:} \\
+\url{https://github.com/SamVanDoorsselaere/Graduaatsproef-Hogent-Sam}

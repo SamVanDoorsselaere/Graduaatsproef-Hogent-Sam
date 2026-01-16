@@ -5,46 +5,57 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
-
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
+De energiemarkt is de afgelopen jaren sterk veranderd door de introductie van dynamische tarieven. Waar consumenten vroeger vaste prijzen betaalden, schommelen de huidige energieprijzen nu per uur. Voor bedrijven zoals Energytix is het cruciaal om deze data niet alleen aan te bieden, maar ook toegankelijk te maken op een manier dat eindgebruikers er onmiddellijk naar kunnen handelen. Hoewel Energytix reeds over een webplatform beschikt, vormt de stap naar een mobiele applicatie de volgende essentiële fase in hun digitale dienstverlening.
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+Energytix biedt momenteel een "klok-pagina" aan via de browser (\url{https://klok.energytix.cloud}). Gebruikers raadplegen deze pagina om te bepalen wanneer elektriciteit het goedkoopst is, bijvoorbeeld om grote huishoudelijke apparaten aan te zetten of elektrische voertuigen op te laden. 
+
+Het gebruik van een browser op een mobiel toestel brengt echter beperkingen met zich mee voor de specifieke doelgroep (particuliere klanten en kleine zelfstandigen van Energytix):
+\begin{itemize}
+    \item \textbf{Gebruikerservaring:} Een browser is minder intuïtief en trager dan een native app voor snelle raadplegingen.
+    \item \textbf{Drempelwaarde:} Het telkens opnieuw moeten navigeren naar een URL wordt als hinderlijk ervaren.
+    \item \textbf{Gebrek aan overzicht:} De huidige webomgeving is niet geoptimaliseerd voor snelle, visuele mobiele interacties zoals "swipe"-bewegingen of specifieke mobiele UI-componenten.
+\end{itemize}
+
+Er is dus nood aan een mobiel prototype dat de drempel tot deze data verlaagt en de visuele communicatie (zoals prijskleurcodes) optimaliseert voor het kleine scherm.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
 \label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+Tijdens deze graduaatsproef staat de volgende centrale onderzoeksvraag centraal:
+
+\textit{"Hoe kan de bestaande webgebaseerde prijsinformatie van Energytix effectief getransformeerd worden naar een cross-platform mobiele applicatie met React Native, met behoud van visuele duidelijkheid en technische performantie?"}
+
+Deze vraag wordt ondersteund door de volgende deelvragen:
+\begin{enumerate}
+    \item Hoe kan een Node.js-tussenlaag (`server.js`) efficiënt data ophalen uit een PostgreSQL-database en de Energytix API voor mobiele consumptie?
+    \item Op welke manier kan een visuele "klok-interface" in React Native zodanig gestyled worden dat het zowel voor iOS als Android een consistente ervaring biedt?
+    \item Hoe kan de "morgen-cirkel" (prijsvoorspelling) logisch geïntegreerd worden in de mobiele UI om de gebruiksvriendelijkheid te verhogen?
+\end{enumerate}
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je graduaatsproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+Het beoogde resultaat van deze graduaatsproef is een werkend \textbf{prototype} van de Energytix-app. De criteria voor succes zijn:
+\begin{itemize}
+    \item Een stabiele verbinding tussen de app en de database via de ontwikkelde tussenlaag.
+    \item Een volledig custom gestylede klok-interface die de actuele prijs en de morgen-cirkel correct weergeeft.
+    \item Functionele compatibiliteit op zowel iOS als Android (getest via Expo Go).
+\end{itemize}
 
 \section{\IfLanguageName{dutch}{Opzet van deze graduaatsproef}{Structure of this associate thesis}}%
 \label{sec:opzet-graduaatsproef}
 
-% Het is gebruikelijk aan het einde van de inleiding een overzicht te
-% geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
-% die je kan aanvullen/aanpassen in functie van je eigen tekst.
-
 De rest van deze graduaatsproef is als volgt opgebouwd:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken, waaronder de keuze voor React Native en de opzet van de server-tussenlaag.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Hoofdstuk~\ref{ch:analyse} (Analyse) bespreken we de functionele behoeften van Energytix en hoe de data-architectuur is opgebouwd.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+In Hoofdstuk~\ref{ch:technologie} wordt dieper ingegaan op de gebruikte technologie-stack zoals Expo, Axios en PostgreSQL.
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk~\ref{ch:implementatie} (Implementatie) wordt de effectieve realisatie en styling van de app besproken, inclusief de uitdagingen bij cross-platform ontwikkeling.
+
+In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen, samen met aanbevelingen voor verdere uitbreidingen van de applicatie.

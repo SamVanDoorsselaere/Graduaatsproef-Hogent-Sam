@@ -1,18 +1,36 @@
 %%=============================================================================
-%% Conclusie
+%% Conclusie - Sam Van Doorsselaere
 %%=============================================================================
 
-\chapter{Conclusie}%
+\chapter{Conclusie}
 \label{ch:conclusie}
 
-% TODO: Trek een duidelijke conclusie, in de vorm van een antwoord op de
-% onderzoeksvra(a)g(en). Wat was jouw bijdrage aan het onderzoeksdomein en
-% hoe biedt dit meerwaarde aan het vakgebied/doelgroep? 
-% Reflecteer kritisch over het resultaat. In Engelse teksten wordt deze sectie
-% ``Discussion'' genoemd. Had je deze uitkomst verwacht? Zijn er zaken die nog
-% niet duidelijk zijn?
-% Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
-%onderzoek?
+In deze graduaatsproef hebben we gewerkt aan de transformatie van de webgebaseerde prijsinformatie van Energytix naar een functioneel mobiel prototype. Het doel was om de drempel voor gebruikers te verlagen en de complexe dynamische energieprijzen op een intuïtieve manier te presenteren.
 
-\lipsum[76-80]
+\section{Evaluatie van de doelstellingen}
+In de inleiding formuleerden we de doelstelling om een stabiel prototype te bouwen in React Native dat de "klok-functionaliteit" mobiel beschikbaar zou maken. We kunnen concluderen dat dit doel succesvol is behaald.
 
+De belangrijkste resultaten van dit project zijn:
+\begin{itemize}
+    \item \textbf{Succesvolle Data-integratie:} De ontwikkelde Node.js-tussenlaag slaagt erin om real-time prijzen uit de PostgreSQL-database en de Energytix API op te halen, te verwerken en efficiënt door te sturen naar de mobiele applicatie.
+    \item \textbf{Intuïtieve Visuele Interface:} De volledig custom gestylede prijsklok biedt gebruikers direct inzicht in hun huidige verbruikskosten. De toevoeging van de "morgen-cirkel" na 14:00 uur is een waardevolle feature die proactief handelen door de consument mogelijk maakt.
+    \item \textbf{Effectieve Kleurcodering:} Het algoritme dat prijzen vergelijkt met het daggemiddelde en visueel vertaalt naar kleurindicatoren (groen, oranje, rood), is een significante verbetering ten opzichte van de tekstuele weergave in de oorspronkelijke webomgeving.
+    \item \textbf{Cross-platform Beschikbaarheid:} Ondanks de technische uitdagingen bij specifieke componenten (zoals de iOS datum-picker), is er een codebase gerealiseerd die consistent functioneert op zowel Android- als iOS-toestellen.
+\end{itemize}
+
+De keuze voor de technologie-stack (React Native, Expo en Node.js) is essentieel gebleken voor de snelheid van de ontwikkeling en de kwaliteit van het eindresultaat.
+
+\section{Toekomstperspectieven}
+Hoewel het huidige prototype een solide basis vormt, zijn er verschillende mogelijkheden om de applicatie in een volgende fase verder uit te breiden:
+
+\begin{enumerate}
+    \item \textbf{Historische Analyse:} Het toevoegen van grafieken die de evolutie van de uurprijzen over de afgelopen week of maand tonen, zou gebruikers helpen patronen in hun verbruik te herkennen.
+    \item \textbf{Gepersonaliseerde Filters:} De mogelijkheid om prijzen te filteren op specifieke tijdsblokken (bijvoorbeeld per 3 of 6 uur) voor gebruikers die hun verbruik in grotere blokken willen plannen.
+    \item \textbf{Push-notificaties:} Het implementeren van een notificatiesysteem dat de gebruiker waarschuwt wanneer de prijs onder een bepaalde drempelwaarde zakt (bijvoorbeeld bij negatieve energieprijzen).
+    \item \textbf{Integratie van meer Energytix-diensten:} Het prototype kan verder uitgebouwd worden tot een alles-in-één app waar klanten ook hun facturatie, verbruikshistoriek en contractgegevens kunnen raadplegen.
+\end{enumerate}
+
+\section{Slotwoord}
+Dit project heeft aangetoond dat mobiele technologie een cruciale rol speelt in de moderne energiemarkt. Door prijsdata niet alleen beschikbaar te stellen, maar ook visueel te duiden, wordt de consument empowered om slimmere keuzes te maken. De ontwikkelde applicatie vormt een functionele brug tussen de complexe data van Energytix en de dagelijkse realiteit van de gebruiker.
+
+\clearpage

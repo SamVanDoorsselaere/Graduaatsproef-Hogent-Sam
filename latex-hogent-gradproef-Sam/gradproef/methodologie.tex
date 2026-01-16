@@ -1,30 +1,37 @@
 %%=============================================================================
-%% Methodologie
+%% Methodologie - Sam Van Doorsselaere
 %%=============================================================================
 
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}%
 \label{ch:methodologie}
 
-%% TODO: In dit hoofstuk geef je een korte toelichting over hoe je te werk bent
-%% gegaan. Verdeel je onderzoek in grote fasen, en licht in elke fase toe wat
-%% de doelstelling was, welke deliverables daar uit gekomen zijn, en welke
-%% onderzoeksmethoden je daarbij toegepast hebt. Verantwoord waarom je
-%% op deze manier te werk gegaan bent.
-%% 
-%% Voorbeelden van zulke fasen zijn: literatuurstudie, opstellen van een
-%% requirements-analyse, opstellen long-list (bij vergelijkende studie),
-%% selectie van geschikte tools (bij vergelijkende studie, "short-list"),
-%% opzetten testopstelling/PoC, uitvoeren testen en verzamelen
-%% van resultaten, analyse van resultaten, ...
-%%
-%% !!!!! LET OP !!!!!
-%%
-%% Het is uitdrukkelijk NIET de bedoeling dat je het grootste deel van de corpus
-%% van je graduaatsproef in dit hoofstuk verwerkt! Dit hoofdstuk is eerder een
-%% kort overzicht van je plan van aanpak.
-%%
-%% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
-%% en geef het een gepaste titel.
+In dit hoofdstuk wordt de gekozen aanpak voor de ontwikkeling van de Energytix-applicatie toegelicht. De focus ligt op de fasering van het project, de gekozen technologieën en de manier waarop de voortgang werd bewaakt.
 
-\lipsum[21-25]
+\section{Ontwikkelmethode}
+Voor de realisatie van dit prototype is gekozen voor een **fasemodel**, waarbij de focus lag op het bouwen van een robuuste verbinding tussen de bestaande data en de nieuwe mobiele interface.
 
+\begin{itemize}
+    \item \textbf{Fase 1: Analyse en Requirements:} In deze fase is onderzocht welke data van de huidige "klok-pagina" essentieel zijn voor de mobiele gebruiker. Dit resulteerde in de beslissing om de focus te leggen op de uurprijzen, de extremen (duurste/goedkoopste) en de voorspelling voor de volgende dag.
+    \item \textbf{Fase 2: Architectuur en Backend:} De ontwikkeling startte met het opzetten van de tussenlaag. Er is een Node.js-server (\texttt{server.js}) gebouwd om de communicatie tussen de PostgreSQL-database, de Energytix API en de mobiele app te faciliteren.
+    \item \textbf{Fase 3: Frontend Ontwikkeling en Styling:} Na de backend-koppeling is de interface in React Native ontwikkeld. Hierbij is bewust gekozen voor custom styling in plaats van standaard componenten om volledige vrijheid te hebben over de visuele identiteit van de klok.
+    \item \textbf{Fase 4: Cross-platform Validatie:} In de laatste fase is de app uitvoerig getest op zowel iOS als Android via Expo Go om compatibiliteitsproblemen (zoals bij de kalender-component) op te lossen.
+\end{itemize}
+
+\section{Projectopvolging en Besluitvorming}
+Aangezien dit een individueel traject betrof binnen Energytix, lag de nadruk op zelfstandigheid en technisch eigenaarschap. De keuzes voor de technologie-stack (\textbf{React Native} en \textbf{Expo}) werden gemaakt op basis van de expertise opgebouwd tijdens de opleiding, wat zorgde voor een efficiënte start van de ontwikkeling.
+
+De voortgang werd wekelijks getoetst aan de vooropgestelde planning van ongeveer 100 uur. Er was een nauwe samenwerking met de stagementor om de technische integratie met de bestaande API-structuur van Energytix correct te laten verlopen.
+
+\section{Gebruik van Generatieve AI}
+Tijdens dit project is er gebruikgemaakt van generatieve AI-tools, waaronder **ChatGPT** en **Google Gemini**. Deze tools werden ingezet als ondersteuning bij:
+
+\begin{itemize}
+    \item \textbf{Troubleshooting:} Het oplossen van specifieke bugs bij de integratie van Axios en het afhandelen van asynchrone data-oproepen in de Node.js tussenlaag.
+    \item \textbf{Cross-platform debugging:} Het zoeken naar alternatieven voor UI-elementen die niet consistent werkten op zowel iOS als Android (bijvoorbeeld de datum-selectie).
+    \item \textbf{Documentatie:} Het structureren van technische uitleg en het vertalen van de management summary naar een professionele Engelse abstract.
+\end{itemize}
+
+Alle door AI voorgestelde oplossingen zijn handmatig gevalideerd, aangepast aan de specifieke context van de Energytix-codebase en uitvoerig getest op fysieke apparaten.
+
+% --- HARD PAGE BREAK OM VOLGEND HOOFDSTUK SCHOON TE STARTEN ---
+\clearpage

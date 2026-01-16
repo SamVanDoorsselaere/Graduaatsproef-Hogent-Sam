@@ -1,0 +1,104 @@
+%===============================================================================
+% LaTeX verslag voor de graduaatsproef - Sam Van Doorsselaere
+%===============================================================================
+
+\documentclass[dutch,dit,thesis,oneside]{hogentreport}
+
+\usepackage[chapter,outputdir=../output]{minted}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% Definieer de HOGENT kleur
+\definecolor{hogentRed}{RGB}{200, 20, 40}
+
+\usemintedstyle{solarized-light}
+
+\setminted{
+    autogobble,
+    frame=lines,
+    breaklines,
+    linenos,
+    tabsize=4
+}
+
+% Metadata voor de PDF
+\author{Sam Van Doorsselaere}
+\title{React Native mobiele app voor Energytix}
+\academicyear{2025-2026}
+
+\addbibresource{gradproef.bib} % Je nieuwe bib bestand
+\addbibresource{voorstel.bib}  % Je bib bestand van je voorstel
+
+\begin{document}
+
+\frontmatter
+\hypersetup{pageanchor=false}
+
+% --- START TITELPAGINA ---
+\begin{titlepage}
+    \sffamily 
+    \raggedright 
+    
+    {\small \textbf{HOGENT}} 
+    
+    \vspace{3cm} 
+    
+    {
+        \fontsize{30}{36}\selectfont 
+        \bfseries 
+        \color{hogentRed} 
+        REACT NATIVE MOBIELE APP VOOR ENERGYTIX
+        \par
+    }
+    
+    \vspace{0.5cm}
+    
+    {\Large \color{hogentRed} Graduaatsproef \par}
+    
+    \vspace{2cm}
+    
+    % Zorg dat je een logo van Energytix in een map 'img' zet
+    \includegraphics[width=9cm]{img/energytix_logo.png} 
+    
+    \vfill 
+    
+    {\Large \textbf{Sam Van Doorsselaere} \par}
+    
+    \vspace{0.5cm}
+    
+    Promotor: [Naam van je HOGENT promotor] \\
+    Co-promotor: K. De Ridder (IRC Engineering)
+    
+    \vspace{1cm}
+    
+    \hfill 2025-2026
+    
+\end{titlepage}
+% --- EINDE TITELPAGINA ---
+
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic} % Zorgt voor normale paginanummers
+
+% De korte stukjes tekst
+\input{samenvatting} % Nederlands (Management Summary)
+\input{abstract}    % Engels (Management Summary)
+\input{voorwoord}
+
+\tableofcontents
+\listoffigures % Optioneel
+
+\mainmatter
+
+% Hier roep je de hoofdstukken op
+\input{inleiding}
+\input{methodologie}
+\input{analyse}
+\input{technologie}
+\input{implementatie}
+\input{conclusie}
+
+\backmatter
+\setlength\bibitemsep{2pt}
+\printbibliography[heading=bibintoc]
+
+\end{document}

@@ -1,0 +1,10 @@
+\chapter{Abstract}
+\label{ch:abstract}
+
+This associate degree thesis details the development of a mobile application for Energytix, aimed at improving the accessibility of real-time energy pricing data. The current web-based "clock page" lacked the speed and optimized user experience required for mobile-first interactions.
+
+The objective of this project was to create a functional React Native prototype that translates complex Energytix pricing data into an intuitive visual interface. The core feature is a visual "clock display" showing the current hourly price per megawatt-hour, complemented by a "tomorrow circle" that previews the upcoming day's price forecasts starting at 2:00 PM. A dynamic color-coding system (green for low prices, red for high prices) has been implemented to provide users with immediate actionable insights.
+
+The technical realization utilizes a modern stack consisting of \textbf{React Native} and \textbf{Expo Go}. Communication between the mobile frontend, the Energytix API, and the \textbf{PostgreSQL} database is handled via a \textbf{Node.js} middleware (`server.js`) using \textbf{Axios} for data fetching.
+
+The primary challenges during the project involved ensuring cross-platform compatibility between iOS and Android, specifically regarding UI components like the calendar interface. The resulting application provides a robust foundation for the further digitalization of the Energytix platform, significantly enhancing the user experience by placing crucial energy data directly into the hands of the end-user.

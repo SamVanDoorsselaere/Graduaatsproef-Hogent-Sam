@@ -1,0 +1,48 @@
+%%=============================================================================
+%% Analyse - Sam Van Doorsselaere
+%%=============================================================================
+
+\chapter{Analyse}
+\label{ch:analyse}
+
+Voordat de ontwikkeling van de mobiele applicatie kon starten, was het noodzakelijk om de functionele behoeften van Energytix en haar klanten in kaart te brengen. In dit hoofdstuk beschrijven we de vereisten waaraan het prototype moet voldoen en de visuele logica die nodig is om de energieprijzen begrijpelijk te presenteren.
+
+\section{Functionele Vereisten}
+De mobiele applicatie moet de volgende kernfunctionaliteiten bevatten om een waardevol alternatief te bieden voor de huidige webomgeving:
+
+\begin{itemize}
+    \item \textbf{Visuele Prijsklok:} Het systeem moet de actuele uurprijs per megawattuur tonen op een analoge klok-interface, zodat de gebruiker in één oogopslag de huidige situatie begrijpt.
+    \item \textbf{Uitersten en Gemiddelden:} De app moet automatisch berekend weergeven wat het goedkoopste uur, het duurste uur en de gemiddelde uurprijs van de huidige dag is.
+    \item \textbf{Morgen-cirkel (Voorspelling):} Zodra de prijzen voor de volgende dag beschikbaar zijn (dagelijks rond 14:00 uur), moet de app een secundaire cirkel binnen de klok tonen die deze toekomstige data visualiseert.
+    \item \textbf{Kleurgecodeerde Indicatoren:} Om de interpretatie te versnellen, moeten prijzen voorzien worden van een kleur (groen voor voordelig, rood voor duur, oranje voor neutraal).
+\end{itemize}
+
+\section{Niet-functionele Vereisten}
+Naast de directe functies zijn er kwalitatieve eisen gesteld aan het prototype:
+\begin{itemize}
+    \item \textbf{Cross-platform compatibiliteit:} De applicatie moet identiek functioneren op zowel iOS als Android, met specifieke aandacht voor systeem-eigen componenten zoals datum-selectie.
+    \item \textbf{Performantie:} De data-ophaling via de tussenlaag moet snel gebeuren, zodat de gebruiker niet geconfronteerd wordt met lange laadtijden bij het openen van de app.
+    \item \textbf{Huisstijl en Styling:} De interface moet de identiteit van Energytix uitstralen. Hiervoor is gekozen voor een volledig custom styling van de UI-componenten.
+\end{itemize}
+
+\section{Gewenste Flow (User Journey)}
+\label{sec:user_journey}
+
+De gebruikerservaring is ontworpen om de drempel voor prijsraadpleging zo laag mogelijk te houden. De flow ziet er als volgt uit:
+
+\begin{enumerate}
+    \item \textbf{Opstarten en Data-sync:} Bij het openen van de app maakt de frontend via Axios verbinding met de \texttt{server.js} tussenlaag. Deze haalt de meest recente data op uit de PostgreSQL-database of de Energytix API.
+    \item \textbf{Hoofdscherm (De Klok):} De gebruiker krijgt direct de grote prijsklok te zien. De wijzer staat op het huidige uur en de kleur van de prijsring geeft aan hoe voordelig dit uur is ten opzichte van de rest van de dag.
+    \item \textbf{Detailinformatie:} Onder de klok worden de berekende waarden (min/max/gemiddelde) getoond.
+    \item \textbf{Toekomstvisie:} Indien het na 14:00 uur is, ziet de gebruiker de 'morgen-cirkel' verschijnen. Door visueel onderscheid (een kleinere straal) kan de gebruiker het verschil tussen 'vandaag' en 'morgen' direct waarnemen.
+\end{enumerate}
+
+\section{Datamodel en Tussenlaag}
+Om de app van data te voorzien, is een specifiek model nodig in de backend:
+\begin{itemize}
+    \item \textbf{Prijsdata:} De ruwe data per uur (timestamp en prijs).
+    \item \textbf{Middleware Logica:} De \texttt{server.js} tussenlaag berekent op basis van de ruwe data de extremen (duurste/goedkoopste kwartier en uur) voordat de resultaten naar de app worden gestuurd. Dit ontlast de smartphone en zorgt voor een snellere weergave.
+    \item \textbf{PostgreSQL Koppeling:} De database slaat de historische en actuele prijzen op, zodat deze niet bij elke request rechtstreeks van een externe API hoeven te komen.
+\end{itemize}
+
+\clearpage
