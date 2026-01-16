@@ -37,7 +37,7 @@
 \frontmatter
 \hypersetup{pageanchor=false}
 
-% --- START TITELPAGINA ---
+% --- START CUSTOM TITELPAGINA ---
 \begin{titlepage}
     \sffamily 
     \raggedright 
@@ -60,8 +60,7 @@
     
     \vspace{2cm}
     
-    % Zorg dat je een logo van Energytix in een map 'img' zet
-    % \includegraphics[width=9cm]{img/energytix_logo.png} 
+    \includegraphics[width=9cm]{img/Energyixlogo.png}
     
     \vfill 
     
@@ -70,7 +69,7 @@
     \vspace{0.5cm}
     
     Promotor: Isabelle Demeulenaere \\
-    Co-promotor: K. De Ridder (IRC Engineering)
+    Co-promotor: Kris De Ridder (IRC Engineering)
     
     \vspace{1cm}
     
@@ -80,27 +79,37 @@
 % --- EINDE TITELPAGINA ---
 
 \hypersetup{pageanchor=true}
-\pagenumbering{arabic} % Zorgt voor normale paginanummers
+\pagenumbering{arabic}
 
-% De korte stukjes tekst
-\input{samenvatting} % Nederlands (Management Summary)
-\input{abstract}    % Engels (Management Summary)
+
+\input{samenvatting}
+\vspace{1cm} % Ruimte tussen NL en EN
+\input{abstract}
+
 \input{voorwoord}
 
+\clearpage
 \tableofcontents
 
 \mainmatter
 
-% Hier roep je de hoofdstukken op
+% --- HOOFDSTUKKEN ZONDER PAGINASPRONGEN ---
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+
+% Gebruik \input in plaats van \include om witruimte te minimaliseren
 \input{inleiding}
 \input{methodologie}
 \input{analyse}
 \input{technologie}
 \input{implementatie}
 \input{conclusie}
+\endgroup
 
 \backmatter
 \setlength\bibitemsep{2pt}
+\nocite{*}
 \printbibliography[heading=bibintoc]
 
 \end{document}

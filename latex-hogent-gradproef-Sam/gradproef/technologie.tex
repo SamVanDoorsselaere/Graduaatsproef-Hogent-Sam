@@ -5,43 +5,34 @@
 \chapter{Technologie}
 \label{ch:technologie}
 
-In dit hoofdstuk wordt de technologie-stack toegelicht die is gebruikt voor de ontwikkeling van de Energytix-applicatie. De keuzes zijn gebaseerd op de kennis opgedaan tijdens de opleiding Graduaat in het Programmeren en de specifieke technische behoeften van Energytix.
+Dit hoofdstuk licht de technologie-stack toe, gebaseerd op de expertise vanuit de opleiding en de technische behoeften van Energytix.
 
 \section{Frontend: React Native en Expo Go}
-Voor de ontwikkeling van de mobiele interface is gekozen voor \textbf{React Native} in combinatie met \textbf{Expo Go}. React Native is een populair framework, ontwikkeld door Meta, waarmee native applicaties gebouwd kunnen worden met behulp van JavaScript en React.
+Voor de mobiele interface is gekozen voor \textbf{React Native} met \textbf{Expo Go}. Dit framework maakt native applicaties mogelijk via JavaScript en React.
 
 
 
 [Image of React Native architecture diagram]
 
 
-De belangrijkste redenen voor deze keuze zijn:
-\begin{itemize}
-    \item \textbf{Expertise:} De basis van dit framework werd aangeleerd tijdens de opleiding, waardoor de ontwikkeling efficiënt en met een sterke basis kon starten.
-    \item \textbf{Cross-platform:} Met één codebase kunnen zowel iOS- als Android-applicaties worden gegenereerd, wat essentieel was voor de brede doelgroep van Energytix.
-    \item \textbf{Expo Go:} Deze toolset versnelt het ontwikkelproces aanzienlijk door directe over-the-air (OTA) updates naar fysieke testtoestellen mogelijk te maken, zonder dat hiervoor telkens een volledige build-cyclus nodig is.
+\noindent\textbf{Belangrijkste voordelen:}
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{Expertise:} Gebruik van de tijdens de opleiding aangeleerde basis voor een efficiënte start.
+    \item \textbf{Cross-platform:} Eén codebase voor zowel iOS als Android.
+    \item \textbf{Expo Go:} Snelle ontwikkeling via directe updates naar testtoestellen zonder volledige build-cycli.
 \end{itemize}
 
 \section{Tussenlaag: Node.js en Axios}
-In plaats van de app rechtstreeks met de hoofd-API te verbinden, is er gekozen voor een architectuur met een tussenlaag (\texttt{server.js}). Deze is gebouwd in \textbf{Node.js}.
+Er is een architectuur met een \textbf{Node.js} tussenlaag (\texttt{server.js}) opgezet. De communicatie verloopt via \textbf{Axios}. De voordelen zijn:
 
-De communicatie tussen de mobiele app en deze server verloopt via \textbf{Axios}. De voordelen van deze tussenlaag zijn:
-\begin{itemize}
-    \item \textbf{Data-transformatie:} De server haalt ruwe prijsgegevens op en berekent direct de extremen (goedkoopste/duurste uren), waardoor de frontend ontlast wordt.
-    \item \textbf{Security:} Gevoelige API-sleutels en database-credentials blijven op de server en worden niet blootgesteld in de code van de mobiele app.
-    \item \textbf{Stabiliteit:} De tussenlaag fungeert als buffer; bij wijzigingen in de externe API hoeft enkel de server-logica aangepast te worden en niet de volledige app.
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{Data-transformatie:} De server berekent prijs-extremen vooraf, wat de frontend ontlast.
+    \item \textbf{Security:} Gevoelige API-sleutels blijven veilig op de server.
+    \item \textbf{Stabiliteit:} De tussenlaag buffert wijzigingen in externe API's; enkel de server-logica behoeft aanpassing bij externe updates.
 \end{itemize}
 
-% --- PAGINABREUK VOOR OVERZICHTELIJKHEID ---
-\clearpage 
-% ------------------------------------------
-
 \section{Database: PostgreSQL}
-Voor de opslag van energieprijzen en historische data wordt gebruikgemaakt van \textbf{PostgreSQL}. Dit is een robuust relationeel databasesysteem (RDBMS) dat uitblinkt in het verwerken van grote hoeveelheden tijdgebaseerde data. Voor Energytix is dit cruciaal, aangezien de prijshistoriek per uur nauwkeurig moet worden bijgehouden en opgevraagd voor de visuele klokweergave.
+Voor de opslag van tijdgebaseerde energieprijzen wordt \textbf{PostgreSQL} ingezet. Dit relationele systeem is essentieel voor het accuraat bijhouden en opvragen van de uurlijkse prijshistoriek voor de visuele klok.
 
 \section{Ontwikkelomgeving en Uitdagingen}
-De ontwikkeling vond plaats in \textbf{Visual Studio Code} met de \textbf{LaTeX Workshop} extensie voor de documentatie.
-
-
-
-Een specifieke technische uitdaging was de cross-platform compatibiliteit. Hoewel React Native belooft dat code overal werkt, bleken UI-componenten zoals de \texttt{DateTimePicker} zich anders te gedragen op iOS dan op Android. Waar de component op Android direct functioneel was, vereiste iOS een andere implementatie of styling om een vergelijkbare gebruikerservaring te bieden. Dit dwong tot een diepere duik in platform-specifieke code en het zoeken naar alternatieve bibliotheken die beide systemen uniform ondersteunen.
+De ontwikkeling vond plaats in \textbf{Visual Studio Code}. Een specifieke uitdaging was de cross-platform compatibiliteit, waarbij componenten zoals de \texttt{DateTimePicker} op iOS andere styling vereisten dan op Android. Dit leidde tot de implementatie van platform-specifieke code en bibliotheken om een uniforme gebruikerservaring te garanderen.

@@ -5,58 +5,36 @@
 \chapter{Implementatie}
 \label{ch:implementatie}
 
-In dit hoofdstuk bespreken we de technische realisatie van de Energytix-applicatie. We focussen op de werking van de Node.js tussenlaag, de complexe styling van de visuele prijsklok in React Native en de logica achter de kleurcodering.
+Dit hoofdstuk behandelt de technische realisatie, met focus op de Node.js tussenlaag, de custom prijsklok in React Native en de bijbehorende kleurlogica.
 
 \section{Backend Logica (\texttt{server.js})}
-De tussenlaag fungeert als de intelligentie van de applicatie. In plaats van de mobiele app te belasten met zware berekeningen, vindt de data-verwerking plaats op de server.
+De tussenlaag fungeert als de intelligentie van de applicatie door data-verwerking van de mobiele app naar de server te verplaatsen.
 
 \subsection{API-integratie en Data-ophaling}
-Via de \textbf{Axios}-bibliotheek haalt de server elk uur de meest recente prijsgegevens op van de Energytix API. Deze data wordt opgeslagen in de \textbf{PostgreSQL}-database. Wanneer een gebruiker de app opent, stuurt de server niet de volledige dataset door, maar een gefilterde JSON-respons die specifiek is geoptimaliseerd voor de mobiele weergave.
+Via **Axios** haalt de server elk uur prijsgegevens op van de Energytix API en slaat deze op in **PostgreSQL**. Bij een verzoek stuurt de server een geoptimaliseerde JSON-respons door naar de mobiele app.
 
 \subsection{Berekening van Extremen}
-Een cruciale taak van de \texttt{server.js} is het berekenen van de dagelijkse uitersten. De server doorloopt de prijslijst van de huidige dag om de volgende waarden te bepalen:
-\begin{itemize}
-    \item De gemiddelde uurprijs.
-    \item Het absolute piek-uur (duurste moment).
-    \item Het absolute dal-uur (goedkoopste moment).
-\end{itemize}
-Door deze logica op de server uit te voeren, blijft de frontend "lean" en snel, wat de batterijduur en performantie van de smartphone ten goede komt.
+De \texttt{server.js} berekent direct de gemiddelde uurprijs, het piek-uur en het dal-uur. Door deze logica op de server uit te voeren, blijft de frontend "lean", wat de performantie van de smartphone bevordert.
 
 \section{Frontend Realisatie (React Native)}
-De frontend is volledig custom gebouwd. Er is bewust gekozen om geen standaard grafiek-libraries te gebruiken, maar de interface zelf te tekenen voor maximale flexibiliteit.
+De frontend is volledig custom gebouwd zonder standaard grafiek-libraries voor maximale visuele flexibiliteit.
 
 \subsection{De Visuele Prijsklok}
-Het meest opvallende element van de app is de klok. Deze is opgebouwd uit verschillende lagen:
-\begin{itemize}
-    \item \textbf{De Prijsring:} Een cirkelvormige weergave waarbij elk segment staat voor een uur van de dag.
-    \item \textbf{De Wijzer:} Een dynamisch element dat de huidige tijd op de klok aanduidt.
-    \item \textbf{De Morgen-cirkel:} Een secundaire, kleinere cirkel die binnen de hoofdklok verschijnt zodra de prijzen voor de volgende dag (na 14:00u) beschikbaar zijn.
+De interface is opgebouwd uit drie dynamische lagen:
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{De Prijsring:} Een cirkel waarbij segmenten de uren van de dag vertegenwoordigen.
+    \item \textbf{De Wijzer:} Duidt de actuele tijd aan.
+    \item \textbf{De Morgen-cirkel:} Een secundaire, kleinere cirkel voor prijsvoorspellingen (zichtbaar na 14:00u).
 \end{itemize}
 
 
 
-\subsection{Kleurlogica en Visuele Indicatoren}
-Om de prijsinformatie direct interpreteerbaar te maken, is er een algoritme ontwikkeld dat kleuren toekent aan de prijssegmenten. De kleur wordt bepaald door de prijs van een specifiek uur te vergelijken met het daggemiddelde:
-\begin{itemize}
-    \item \textbf{Groen:} Uren met een prijs die significant onder het gemiddelde liggen.
-    \item \textbf{Rood:} De duurste uren van de dag (de extremen).
-    \item \textbf{Oranje/Geel:} Uren die rond het gemiddelde schommelen.
-\end{itemize}
-Deze kleurcodering zorgt ervoor dat een gebruiker in minder dan een seconde kan beslissen of het een goed moment is om een zwaar toestel in te schakelen.
+\subsection{Kleurlogica}
+Een algoritme kent kleuren toe door uren te vergelijken met het daggemiddelde: \textbf{Groen} voor prijzen onder het gemiddelde, \textbf{Rood} voor de piekmomenten, en \textbf{Oranje} voor neutrale waarden. Dit biedt de gebruiker direct handelingsperspectief.
 
 \section{Cross-platform Uitdagingen}
-Tijdens de implementatie bleek de compatibiliteit tussen iOS en Android een struikelblok, specifiek bij de datum-selectie. 
+De grootste uitdaging was de \texttt{DateTimePicker}. Waar Android direct voldeed, vereiste iOS specifieke styling. Dit is opgelost via platform-specifieke code:
+\small\texttt{Platform.OS === 'ios' ? <IOSDatePicker /> : <AndroidDatePicker />}
 
-\subsection{Datum-picker Problematiek}
-Terwijl de standaard Android-kalender direct bruikbaar was, gaf de iOS-variant een afwijkende weergave die de styling van de app verstoorde. Dit is opgelost door gebruik te maken van conditionele rendering:
-\begin{verbatim}
-    {Platform.OS === 'ios' ? ( <IOSDatePicker /> ) : ( <AndroidDatePicker /> )}
-    \end{verbatim}
-Hierdoor wordt op elk besturingssysteem de meest gebruiksvriendelijke component getoond zonder in te boeten op de huisstijl van Energytix.
-
-\section{Styling en Customization}
-Omdat de vereisten van Energytix zeer specifiek waren, is alle styling uitgevoerd met \textbf{StyleSheet.create} in React Native. Dit gaf de vrijheid om de "morgen-cirkel" exact zo te positioneren dat deze niet overlapte met de huidige prijzen, maar toch een duidelijk overzicht bood voor de komende dag.
-
-
-
-\clearpage
+\section{Styling}
+Alle UI-elementen zijn gerealiseerd via \texttt{StyleSheet.create}. Dit bood de nodige precisie om de "morgen-cirkel" exact te positioneren zonder overlap, wat essentieel is voor een overzichtelijke presentatie van vandaag en morgen op één scherm.

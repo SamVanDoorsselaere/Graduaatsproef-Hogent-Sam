@@ -2,60 +2,34 @@
 %% Inleiding
 %%=============================================================================
 
-\chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
+\chapter{Inleiding}%
 \label{ch:inleiding}
 
-De energiemarkt is de afgelopen jaren sterk veranderd door de introductie van dynamische tarieven. Waar consumenten vroeger vaste prijzen betaalden, schommelen de huidige energieprijzen nu per uur. Voor bedrijven zoals Energytix is het cruciaal om deze data niet alleen aan te bieden, maar ook toegankelijk te maken op een manier dat eindgebruikers er onmiddellijk naar kunnen handelen. Hoewel Energytix reeds over een webplatform beschikt, vormt de stap naar een mobiele applicatie de volgende essentiële fase in hun digitale dienstverlening.
+De energiemarkt is door dynamische uurtarieven sterk veranderd. Voor Energytix is het cruciaal om deze data niet alleen aan te bieden, maar ook mobiel toegankelijk te maken. Hoewel er een webplatform bestaat, vormt een mobiele applicatie de essentiële volgende fase in hun digitale dienstverlening.
 
-\section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
+\section{Probleemstelling}%
 \label{sec:probleemstelling}
 
-Energytix biedt momenteel een "klok-pagina" aan via de browser (\url{https://klok.energytix.cloud}). Gebruikers raadplegen deze pagina om te bepalen wanneer elektriciteit het goedkoopst is, bijvoorbeeld om grote huishoudelijke apparaten aan te zetten of elektrische voertuigen op te laden. 
+De huidige "klok-pagina" (\url{https://klok.energytix.cloud}) via de browser kent beperkingen voor mobiele gebruikers: een browser is minder intuïtief en trager dan een native app, het navigeren naar een URL vormt een drempel, en de interface is niet geoptimaliseerd voor mobiele interacties. Er is dus nood aan een prototype dat de drempel verlaagt en de visuele communicatie optimaliseert voor het kleine scherm.
 
-Het gebruik van een browser op een mobiel toestel brengt echter beperkingen met zich mee voor de specifieke doelgroep (particuliere klanten en kleine zelfstandigen van Energytix):
-\begin{itemize}
-    \item \textbf{Gebruikerservaring:} Een browser is minder intuïtief en trager dan een native app voor snelle raadplegingen.
-    \item \textbf{Drempelwaarde:} Het telkens opnieuw moeten navigeren naar een URL wordt als hinderlijk ervaren.
-    \item \textbf{Gebrek aan overzicht:} De huidige webomgeving is niet geoptimaliseerd voor snelle, visuele mobiele interacties zoals "swipe"-bewegingen of specifieke mobiele UI-componenten.
-\end{itemize}
-
-Er is dus nood aan een mobiel prototype dat de drempel tot deze data verlaagt en de visuele communicatie (zoals prijskleurcodes) optimaliseert voor het kleine scherm.
-
-\section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
+\section{Onderzoeksvraag}%
 \label{sec:onderzoeksvraag}
 
-Tijdens deze graduaatsproef staat de volgende centrale onderzoeksvraag centraal:
+Centraal staat de vraag: \textit{"Hoe kan de bestaande prijsinformatie van Energytix effectief getransformeerd worden naar een cross-platform React Native app, met behoud van visuele duidelijkheid en performantie?"}
 
-\textit{"Hoe kan de bestaande webgebaseerde prijsinformatie van Energytix effectief getransformeerd worden naar een cross-platform mobiele applicatie met React Native, met behoud van visuele duidelijkheid en technische performantie?"}
-
-Deze vraag wordt ondersteund door de volgende deelvragen:
-\begin{enumerate}
-    \item Hoe kan een Node.js-tussenlaag (`server.js`) efficiënt data ophalen uit een PostgreSQL-database en de Energytix API voor mobiele consumptie?
-    \item Op welke manier kan een visuele "klok-interface" in React Native zodanig gestyled worden dat het zowel voor iOS als Android een consistente ervaring biedt?
-    \item Hoe kan de "morgen-cirkel" (prijsvoorspelling) logisch geïntegreerd worden in de mobiele UI om de gebruiksvriendelijkheid te verhogen?
-\end{enumerate}
-
-\section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
-\label{sec:onderzoeksdoelstelling}
-
-Het beoogde resultaat van deze graduaatsproef is een werkend \textbf{prototype} van de Energytix-app. De criteria voor succes zijn:
-\begin{itemize}
-    \item Een stabiele verbinding tussen de app en de database via de ontwikkelde tussenlaag.
-    \item Een volledig custom gestylede klok-interface die de actuele prijs en de morgen-cirkel correct weergeeft.
-    \item Functionele compatibiliteit op zowel iOS als Android (getest via Expo Go).
+\noindent\textbf{Deelvragen:}
+\begin{itemize}[nosep, leftmargin=*]
+    \item Hoe ontsluit een Node.js-tussenlaag (`server.js`) efficiënt data uit de PostgreSQL-database en API?
+    \item Hoe wordt een consistente "klok-interface" gestyled voor zowel iOS als Android?
+    \item Hoe kan de "morgen-cirkel" logisch geïntegreerd worden om de gebruiksvriendelijkheid te verhogen?
 \end{itemize}
 
-\section{\IfLanguageName{dutch}{Opzet van deze graduaatsproef}{Structure of this associate thesis}}%
+\section{Onderzoeksdoelstelling}%
+\label{sec:onderzoeksdoelstelling}
+
+Het resultaat is een werkend \textbf{prototype} dat stabiel verbonden is met de database, een custom gestylede klok-interface bevat en functioneel is op zowel iOS als Android (getest via Expo Go).
+
+\section{Opzet van de graduaatsproef}%
 \label{sec:opzet-graduaatsproef}
 
-De rest van deze graduaatsproef is als volgt opgebouwd:
-
-In Hoofdstuk~\ref{methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken, waaronder de keuze voor React Native en de opzet van de server-tussenlaag.
-
-In Hoofdstuk~\ref{analyse} (Analyse) bespreken we de functionele behoeften van Energytix en hoe de data-architectuur is opgebouwd.
-
-In Hoofdstuk~\ref{technologie} wordt dieper ingegaan op de gebruikte technologie-stack zoals Expo, Axios en PostgreSQL.
-
-In Hoofdstuk~\ref{implementatie} (Implementatie) wordt de effectieve realisatie en styling van de app besproken, inclusief de uitdagingen bij cross-platform ontwikkeling.
-
-In Hoofdstuk~\ref{conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen, samen met aanbevelingen voor verdere uitbreidingen van de applicatie.
+Dit verslag is als volgt opgebouwd: Hoofdstuk~\ref{ch:methodologie} bespreekt de methodologie en technologiekeuzes. Hoofdstuk~\ref{ch:analyse} behandelt de functionele behoeften en data-architectuur. Hoofdstuk~\ref{ch:technologie} gaat dieper in op de technologie-stack (Expo, Axios, PostgreSQL). In Hoofdstuk~\ref{ch:implementatie} komt de effectieve realisatie aan bod. Hoofdstuk~\ref{ch:conclusie} formuleert de conclusie en aanbevelingen.
